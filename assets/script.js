@@ -29,7 +29,7 @@ let generatePassword = function() {
      //allows lowercase letters to be generated in the password
      if (getLowerCase) {
        passwordInfo = passwordInfo +passwordCharacters.lowerCase
-     }
+     };
 
      //asks if user wantes uppercase letters in their password
     let getUpperCase = window.confirm("Do you want uppercase letters in the password?");
@@ -37,7 +37,7 @@ let generatePassword = function() {
     //allows uppercase letters to be generated in the password
     if (getUpperCase) {
       passwordInfo = passwordInfo +passwordCharacters.upperCase
-    }
+    };
  
     //asks if user wants numbers in their password
     let getNumbers = window.confirm("Do you want numbers included in the password?");
@@ -53,16 +53,31 @@ let generatePassword = function() {
     //allows special characters to be generated in the password
     if (getSpecialCharacters) {
       passwordInfo = passwordInfo + passwordCharacters.specialCharacters
-    }
+    };
 
     //just in case they don't choose any options
     if(getLowerCase !=true && getUpperCase !=true && getNumbers !=true && getSpecialCharacters !=true) {
       window.alert("Please select at least one option");
       return generatePassword();
+    };
+
+    //sets an empty canvas for the for loop below to pass information into
+    let newPassword = "";
+
+    //grabs the characterTotal to see how long to make the password
+    for (let i= 0; i < characterTotal; i++) {
+      newPassword += passwordInfo[Math.floor(Math.random() * passwordInfo.length)];
     }
+
+    //gives new password
+    return newPassword;
+  }
+
+  //if the user response is invalid
+  else {
+    window.alert("Please provide a valid length")
   }
 }
-
 
 
 // Get references to the #generate element
