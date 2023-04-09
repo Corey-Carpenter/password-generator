@@ -8,7 +8,7 @@ const passwordCharacters = {
 };
 
 document.getElementById("generate").addEventListener("click", function () {
-  alert(generatePassword);
+  (generatePassword);
 });
 
 //Starts when button is clicked
