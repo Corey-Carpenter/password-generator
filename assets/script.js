@@ -22,7 +22,23 @@ let generatePassword = function() {
 
   //confirms the character length fits the requirements  
   if (characterTotal >= 8 && characterTotal <= 128) {
-    
+
+     //asks if user wants lowercase letters in their password
+     let getLowerCase = window.confirm("Do you want lowercase letters in the password?");
+
+     //allows lowercase letters to be generated in the password
+     if (getLowerCase) {
+       passwordInfo = passwordInfo +passwordCharacters.lowerCase
+     }
+
+     //asks if user wantes uppercase letters in their password
+    let getUpperCase = window.confirm("Do you want uppercase letters in the password?");
+
+    //allows uppercase letters to be generated in the password
+    if (getUpperCase) {
+      passwordInfo = passwordInfo +passwordCharacters.upperCase
+    }
+ 
     //asks if user wants numbers in their password
     let getNumbers = window.confirm("Do you want numbers included in the password?");
 
@@ -39,20 +55,10 @@ let generatePassword = function() {
       passwordInfo = passwordInfo + passwordCharacters.specialCharacters
     }
 
-    //asks if user wants lowercase letters in their password
-    let getLowerCase = window.confirm("Do you want lowercase letters in the password?");
-
-    //allows lowercase letters to be generated in the password
-    if (getLowerCase) {
-      passwordInfo = passwordInfo +passwordCharacters.lowerCase
-    }
-
-    //asks if user wantes uppercase letters in their password
-    let getUpperCase = window.confirm("Do you want uppercase letters in the password?");
-
-    //allows uppercase letters to be generated in the password
-    if (getUpperCase) {
-      passwordInfo = passwordInfo +passwordCharacters.upperCase
+    //just in case they don't choose any options
+    if(getLowerCase !=true && getUpperCase !=true && getNumbers !=true && getSpecialCharacters !=true) {
+      window.alert("Please select at least one option");
+      return generatePassword();
     }
   }
 }
