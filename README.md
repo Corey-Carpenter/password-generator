@@ -1,4 +1,4 @@
-# <Password Generator>
+# Password Generator
 
 ## This application allows users to create randomly generated passwords based on criteria they set. 
 
